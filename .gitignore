@@ -1,0 +1,24 @@
+# Ambiente Virtual do Python
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dados (Datasets pesados não devem ir para o GitHub)
+data/
+*.csv
+*.xlsx
+
+# Artefatos e Outputs gerados localmente (Pesos de modelos e pickle)
+outputs/
+artifacts/
+*.pth
+*.pkl
+
+# Configurações do VS Code e do Sistema
+.vscode/
+.DS_Store

@@ -29,7 +29,7 @@ chekpoint = "google-bert/bert-base-uncased"
 tokenizer = AutoTokenizer.from_pretrained(chekpoint)
 
 def modelo (chekpoint: str, label: int):
-    model = AutoModelForSequenceClassification.from_pretreined(chekpoint, num_labels= label)
+    model = AutoModelForSequenceClassification.from_pretrained(chekpoint, num_labels= label)
     return model
 
 def tokenize_function(examples):    
@@ -55,7 +55,7 @@ def compute_metrics(eval_pred):
     }
 
 def run():   
-    _,_,_,_,df_train, df_test = load_raw_data(test_path, train_path )
+    _, _, _, _, df_train, df_test = load_raw_data(train_path, test_path)
     df_train = df_train.rename(columns={'class': 'label'})
     df_test = df_test.rename(columns={'class': 'label'})
 

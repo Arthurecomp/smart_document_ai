@@ -1,6 +1,6 @@
 import pandas as pd
 
-def load_raw_data(pathtest: str, pathtrain:str):
+def load_raw_data(pathtrain: str, pathtest: str):
     """
     Carrega os dados, e ja faz a transformação de colunas
     """

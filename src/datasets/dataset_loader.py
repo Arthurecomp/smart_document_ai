@@ -4,8 +4,8 @@ def load_raw_data(pathtest: str, pathtrain:str):
     """
     Carrega os dados, e ja faz a transformação de colunas
     """
-    df_train = pd.read_csv(pathtest)
-    df_test = pd.read_csv(pathtrain)
+    df_train = pd.read_csv(pathtrain)
+    df_test = pd.read_csv(pathtest)
 
     df_train.rename(columns= {"Class Index" : "class", "Title":"title", "Description": "description"}, inplace = True)
     df_test.rename(columns= {"Class Index" : "class", "Title":"title", "Description": "description"}, inplace = True)

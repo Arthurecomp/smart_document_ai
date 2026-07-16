@@ -1,16 +1,11 @@
 from src.datasets.dataset_loader import load_raw_data
-
-import transformers
-
 from transformers import AutoTokenizer
 from transformers import AutoModelForSequenceClassification
 from datasets import Dataset
 from transformers import DataCollatorWithPadding
 import numpy as np
 from transformers import TrainingArguments, Trainer
-
 from sklearn.metrics import classification_report, accuracy_score, precision_recall_fscore_support
-
 test_path = "data/raw/test.csv"
 train_path = "data/raw/train.csv"
 
@@ -34,9 +29,6 @@ def modelo (chekpoint: str, label: int):
 
 def tokenize_function(examples):    
     return tokenizer(examples['text'], truncation=True)
-
-
-
 
 
 def compute_metrics(eval_pred):
@@ -71,10 +63,8 @@ def run():
     test_dataset = Dataset.from_pandas(df_test[['text', 'label']])
     
     tokenized_train = train_dataset.map(tokenize_function, batched=True, remove_columns=["text"])
-    tokenized_test = test_dataset.map(tokenize_function, batched=True, remove_columns=["text"])
-    
+    tokenized_test = test_dataset.map(tokenize_function, batched=True, remove_columns=["text"])    
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
-
 
     return tokenized_train, tokenized_test, data_collator
     
@@ -107,12 +97,7 @@ trainer = Trainer(
     data_collator=data_collator,
     compute_metrics=compute_metrics
 )
-
-
-
 trainer.train()
-
-
 raw_predictions = trainer.predict(tokenized_test)
 y_pred = np.argmax(raw_predictions.predictions, axis=-1)
 y_true = raw_predictions.label_ids

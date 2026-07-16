@@ -11,9 +11,8 @@ from transformers import TrainingArguments, Trainer
 
 from sklearn.metrics import classification_report, accuracy_score, precision_recall_fscore_support
 
-
-test_path = "data\\raw\\test.csv"
-train_path = "data\\raw\\train.csv"
+test_path = "data/raw/test.csv"
+train_path = "data/raw/train.csv"
 
 
 import torch

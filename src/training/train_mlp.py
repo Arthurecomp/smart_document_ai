@@ -19,12 +19,13 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
 def run_training():
-    X_train, y_train, X_test, y_test = load_raw_data(test_path, train_path)
+    X_train, y_train, X_test, y_test,_,_ = load_raw_data(test_path, train_path)
     
     document_vetorizador = DocumentVectorizer(max_features=5000)
 
-    df_train_tfid = document_vetorizador.fit_transform(X_train)
 
+
+    df_train_tfid = document_vetorizador.fit_transform(X_train)
 
     df_test_tfid = document_vetorizador.transform(X_test)
 

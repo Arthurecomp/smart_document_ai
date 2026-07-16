@@ -14,6 +14,8 @@ class DocumentVectorizer:
     def __init__(self,max_features):
         self.max_features = max_features
         self.vetorizador = TfidfVectorizer(max_features=max_features)    
+        nltk.download("punkt")
+
 
     def preprocess_text(self, text):
         text = re.sub(r"http\S+|www\S+|https\S+", "", text, flags=re.MULTILINE)

@@ -28,6 +28,6 @@ def load_raw_data(pathtest: str, pathtrain:str):
     X_test = df_test['text']
     y_test = df_test['class']
 
-    return X_train, y_train, X_test, y_test
+    return X_train, y_train, X_test, y_test, df_train, df_test
 
 

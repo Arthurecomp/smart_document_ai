@@ -22,3 +22,6 @@ artifacts/
 # Configurações do VS Code e do Sistema
 .vscode/
 .DS_Store
+
+.env
+.venv/

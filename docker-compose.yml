@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  # 1. MinIO (Armazenamento estilo S3)
+  minio:
+    image: quay.io/minio/minio
+    container_name: smart_minio
+    ports:
+      - "9000:9000"  # Porta da API do MinIO
+      - "9001:9001"  # Painel Web
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: password123
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+
+volumes:
+  minio_data:

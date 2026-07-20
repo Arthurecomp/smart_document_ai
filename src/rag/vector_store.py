@@ -17,14 +17,12 @@ def load_embedding_model(model_name= "gemini-embedding-001"):
     embeddings = GoogleGenerativeAIEmbeddings(model=model_name)
     return embeddings
 
-
 def create_vectorstore(documents, embedding_model):   
     vectorstore = FAISS.from_documents(documents, embedding_model)
     return vectorstore
    
 def save_vectorstore(vectorstore, file_path):
-    return vectorstore.save_local(file_path)
-    
+    return vectorstore.save_local(file_path)    
 
 def load_vectorstore(file_path, embedding_model):
     vectorstore = FAISS.load_local(file_path, embedding_model, allow_dangerous_deserialization= True)

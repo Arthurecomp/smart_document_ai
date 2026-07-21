@@ -11,8 +11,7 @@ from src.rag.generator import load_llm
 
 class RagService:
     def __init__(self, vectorstore_dir: str = "data/vectorstore"):
-        self.vectorstore_dir = vectorstore_dir
-        # Usa o seu modelo de embedding padrão
+        self.vectorstore_dir = vectorstore_dir        
         self.embeddings = load_embedding_model(model_name="gemini-embedding-001")
         os.makedirs(self.vectorstore_dir, exist_ok=True)
 

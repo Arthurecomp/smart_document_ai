@@ -4,11 +4,11 @@ from minio import Minio
 
 class StorageService:
     def __init__(self):
-        self.endpoint = os.getenv("MINIO_ENDPOINT", "localhost:9000")
-        self.access_key = os.getenv("MINIO_ACCESS_KEY", "admin")
-        self.secret_key = os.getenv("MINIO_SECRET_KEY", "password123")
-        self.bucket_name = os.getenv("MINIO_BUCKET", "documentos-brutos")
-        self.secure = os.getenv("MINIO_SECURE", "False").lower() == "true"
+        self.endpoint = "localhost:9000"
+        self.access_key = "admin"
+        self.secret_key = "password12345"
+        self.bucket_name = "documentos-brutos"
+        self.secure = False
 
         self.client = Minio(
             endpoint=self.endpoint,

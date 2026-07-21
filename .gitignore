@@ -23,5 +23,5 @@ artifacts/
 .vscode/
 .DS_Store
 
+# Variáveis de Ambiente e Segredos
 .env
-.venv/
